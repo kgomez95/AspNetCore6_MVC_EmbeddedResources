@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<Content Remove="Views\Users\Index.cshtml" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+	  <!-- 
+	    NOTE: Este elemento es necesario para poder importar las vistas de este proyecto en otro.
+	          Básicamente, lo que estamos haciendo es decir que todos los ficheros con la extensión ".cshtml" que cuelgan de la carpeta "Views" sean recursos incrustados. 
+		-->
+	  <EmbeddedResource Include="Views\**\*.cshtml">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Reports\Index.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
